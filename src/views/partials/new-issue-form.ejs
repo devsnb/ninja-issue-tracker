@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/new-issue-form.css" />
+
+<section class="create-issue-container">
+	<div id="box">
+		<button id="button">+ Create Issue</button>
+
+		<form
+			id="create-issue-form"
+			action="/projects/issue/<%= project._id %>"
+			method="post"
+			autocomplete="off"
+		>
+			<label for="titlelabel">Title</label>
+
+			<input type="text" name="title" placeholder="Title" id="titlelabel" />
+
+			<label for="author">Author</label>
+
+			<input type="text" name="author" placeholder="Author" id="author" />
+
+			<label for="labelinput">Label</label>
+
+			<input
+				type="text"
+				list="labels"
+				name="label"
+				value=""
+				placeholder="label"
+			/>
+			<datalist class="select" id="labels">
+				<% for (let i=0; i < project.labels.length; i++) { %>
+
+				<option value="<%= project.labels[i] %>"></option>
+				<% } %>
+			</datalist>
+
+			<div class="field-textarea">
+				<label for="issue-description">Description </label>
+
+				<textarea
+					name="description"
+					placeholder="Describe your issue..."
+					required
+					id="issue-description"
+				></textarea>
+			</div>
+
+			<input type="submit" value="Create Issue" />
+		</form>
+	</div>
+</section>
+
+<script>
+	const createBtn = document.getElementById('button')
+
+	createBtn.addEventListener('click', () => {
+		const createForm = document.getElementById('create-issue-form')
+
+		if (createBtn.textContent === '+ Create Issue') {
+			createBtn.textContent = 'Hide'
+		} else {
+			createBtn.textContent = '+ Create Issue'
+		}
+		createForm.classList.toggle('show')
+	})
+</script>

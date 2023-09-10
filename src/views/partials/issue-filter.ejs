@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/issue-filter.css" />
+
+<section class="issue-container">
+	<h3>Issues</h3>
+
+	<div class="issue-list-container">
+		<div class="issue-search-container">
+			<form
+				class="search-form"
+				action="/projects/<%= project._id %>?search=titleAuthor"
+				method="GET"
+			>
+				<input
+					type="text"
+					name="titleAuthor"
+					placeholder="Title/Author"
+					id="titleAuthor"
+				/>
+				<input type="submit" value="Search Issue" />
+			</form>
+
+			<form
+				action="/projects/<%= project._id %>?search=titleAuthor"
+				method="GET"
+			>
+				<input class="all-issue-btn" type="submit" value="All Issue" />
+			</form>
+		</div>
+		<div class="issue-filter-container">
+			<h4 class="filter-header">Labels:</h4>
+
+			<form id="filter-form">
+				<% for (let i=0; i < project.labels.length; i++) { %>
+
+				<div class="label-checkbox">
+					<label for="<%= project.labels[i] %>">
+						<%= project.labels[i] %>
+					</label>
+
+					<input
+						class="labels"
+						type="checkbox"
+						id="<%= project.labels[i] %>"
+						name="categories"
+						value="<%= project.labels[i] %>"
+					/>
+				</div>
+
+				<% } %>
+			</form>
+		</div>
+
+		<%- include('./all-issues') %>
+	</div>
+</section>
+
+<script src="/js/issue-filter.js"></script>

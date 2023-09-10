@@ -1,17 +1,17 @@
 import express from 'express'
 import issuesRoutes from './issue.router.js'
+import {
+	createProjectHandler,
+	projectDetailsViewHandler
+} from '../controllers/project.controller.js'
 
 const projectRouter = express.Router()
 
-projectRouter.post('/create', (req, res) => {
-	// TODO
-})
+projectRouter.post('/create', createProjectHandler)
 
-projectRouter.get('/:id', (req, res) => {
-	// TODO
-})
+projectRouter.get('/:id', projectDetailsViewHandler)
 
-projectRouter.post('/issue', issuesRoutes)
-// router.get('/issue/search/:id', projectController.search);
+projectRouter.use('/issue', issuesRoutes)
+
 
 export default projectRouter

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/css/project-details.css" />
+
+<div class="container">
+	<div class="project-container">
+		<h2 class="project-header"><%= project.name %></h2>
+		<p class="project-author">Author : <%= project.author %></p>
+		<p class="project-description"><%= project.description %></p>
+	</div>
+
+	<%- include('../partials/new-issue-form') %> <%-
+	include('../partials/issue-filter') %>
+</div>

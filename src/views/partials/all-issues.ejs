@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/all-issue.css" />
+
+<section class="all-issue">
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Label</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (let issue of issues) { %>
+			<tr class="issue" data-label="<%= issue.label %>">
+				<td><%= issue.title %></td>
+				<td><%= issue.author %></td>
+				<td><%= issue.label %></td>
+				<td><%= issue.description %></td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</section>

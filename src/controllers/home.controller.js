@@ -1,3 +1,4 @@
+import Project from '../models/project.model.js'
 import logger from '../common/logger.js'
 
 /**
@@ -5,15 +6,16 @@ import logger from '../common/logger.js'
  * @param {*} req express request object
  * @param {*} res express response object
  */
-export const homeViewController = async (req, res) => {
+export const homeViewHandler = async (req, res) => {
 	try {
-		return res.render('index', {
-			title: 'Issue Tracker | Home'
+		const foundProjects = await Project.find({}).sort('createdAt')
+
+		return res.render('pages/index', {
+			title: 'Issue Tracker | Home',
+			projects: foundProjects
 		})
 	} catch (error) {
 		logger.error(error, 'failed to render home page')
-		return res.render('pages/500', {
-			title: 'Internal Server Error'
-		})
+		return res.redirect('/500')
 	}
 }

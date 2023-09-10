@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/home.css" />
+
+<div class="home-container">
+	<%- include('../partials/new-project-form') %> <% if(projects &&
+	projects.length > 0) { %>
+	<div class="all-project">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Serial</th>
+					<th>Project Name</th>
+					<th>Author</th>
+					<th>Description</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(let i=0 ; i < projects.length ; i++){ %>
+
+				<tr>
+					<td><%= i+1 %></td>
+					<td><%= projects[i].name %></td>
+					<td><%= projects[i].author %></td>
+					<td><%= projects[i].description %></td>
+
+					<td>
+						<a href="/projects/<%=projects[i]._id%>" class="open-btn"> Open</a>
+					</td>
+				</tr>
+
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+	<% } %>
+</div>

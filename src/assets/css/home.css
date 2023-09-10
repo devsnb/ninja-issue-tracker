@@ -1,0 +1,101 @@
+:root {
+	--dark: #2b2d42;
+	--light: #adb5bd;
+	--border: #dee2e6;
+	--border-btn: #edf2f4;
+}
+
+.home-container {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.create-container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 640px;
+	margin-bottom: 2rem;
+}
+
+h2 {
+	width: fit-content;
+	margin: auto;
+}
+
+.all-project {
+	width: 100%;
+}
+
+.all-project table {
+	border-spacing: 0px;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+.table td,
+.table th {
+	padding: 0.75em;
+	vertical-align: top;
+	text-align: center;
+	border-top: 1px solid var(--border);
+}
+
+.table td > a.btn {
+	padding: 0.3em 1em;
+	font-size: 1.1 em;
+	margin: 0em 0.2em;
+}
+
+.table tr:hover {
+	background-color: rgb(184, 216, 206);
+}
+
+.table tr:hover td > a {
+	box-shadow: none;
+}
+
+.table .thead-dark th {
+	color: white;
+	background-color: var(--dark);
+	border-color: #32383e;
+}
+
+.oneLine {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.open-btn {
+	text-decoration: none;
+	background-color: #4caf50;
+	color: #f2f2f2;
+	padding: 0.4rem 0.6rem;
+}
+
+@media only screen and (max-width: 600px) {
+	.all-project table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	.all-project thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	.all-project tr {
+		border: 1px solid var(--border);
+	}
+
+	.all-project td {
+		border: none;
+		/* border-bottom: 1px solid  var(--border); */
+		position: relative;
+	}
+}
