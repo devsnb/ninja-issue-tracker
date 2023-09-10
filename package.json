@@ -4,6 +4,9 @@
 	"description": "A issue tracker app",
 	"type": "module",
 	"main": "src/main.js",
+	"engines": {
+		"node": ">=18 <20"
+	},
 	"scripts": {
 		"start": "cross-env NODE_ENV=production node src/main.js",
 		"dev": "cross-env NODE_ENV=development nodemon src/main.js"
